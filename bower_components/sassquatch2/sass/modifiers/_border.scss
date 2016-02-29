@@ -1,0 +1,27 @@
+/*doc
+---
+title: Borders
+name: borderMod
+category: Modifier Classes
+---
+Sets border properties on element
+
+Class                   | Description
+----------------------- | --------------------------------
+`.border--top`          | sets a standard top border on the element
+`.border--none`         | removes all borders from element
+`.bordered`             | sets a standard top border AND top padding
+*/
+
+@include _modifier(border, top) {
+	@include standardBorder();
+}
+
+@include _modifier(border, none) {
+	border-width: 0 !important;
+}
+
+.bordered {
+	@extend %border--top;
+	padding-top: $space;
+}

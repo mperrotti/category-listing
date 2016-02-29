@@ -1,0 +1,27 @@
+{
+  "name": "julep",
+  "version": "1.4.3",
+  "description": "Meetup Sass Utilities",
+  "main": [
+    "sass/julep.scss"
+  ],
+  "ignore": [
+    "Gemfile",
+    ".ruby-version",
+    ".bowerrc",
+    "**/*.sh",
+    "**/*.txt",
+    "**/*.lock"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/meetup/julep",
+  "_release": "1.4.3",
+  "_resolution": {
+    "type": "version",
+    "tag": "v1.4.3",
+    "commit": "6e78b71fe5178b51f812604a5e43cfb410033073"
+  },
+  "_source": "git://github.com/meetup/julep.git",
+  "_target": "1.4.3",
+  "_originalSource": "julep"
+}

@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+	<title>Hiking Meetups - Berlin - Meetup</title>
+
+	<!-- Whitney -->
+	<link rel="stylesheet" href="./assets/whitney.css" />
+
+	<!-- Icon font (just until we get SVG working) -->
+	<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+
+	<!-- CSS Hotfixes (mostly just compensating for Chapstick components) -->
+	<link rel="stylesheet" href="assets/css/shim.css" />
+
+	<!-- Load Sassquatch2 -->
+	<link rel="stylesheet" href="assets/css/sq2.css" />
+
+	<!-- Page-specific styles -->
+	<link rel="stylesheet" href="assets/css/globalTopics.css" />
+
+	<!-- JS to load before the page loads -->
+	<script type="text/javascript" src="bower_components/jquery/dist/jquery.min.js"></script>
+	<script type="text/javascript" src="assets/js/dist/depends.min.js"></script>
+
+	<!-- Mapbox depends on these -->
+	<script src='https://api.mapbox.com/mapbox.js/v2.2.3/mapbox.js'></script>
+	<link href='https://api.mapbox.com/mapbox.js/v2.2.3/mapbox.css' rel='stylesheet' />
+
+</head>
+
+<body>
+
+<script type="text/template" id="main-template">
+	<section class="stripe"><div class="bounds">
+		<div class="chunk">
+			<h1 class="text--headline text--wrangleLarge text--bold align--center atMedium_align--left">
+				<a href="#!/change-topic" class="titleFilter display--inlineBlock">Hiking for People Over 40 {{{helpers.svgIcon('chevronDown')}}}</a> Meetups in <a href="#!/change-location" class="titleFilter display--inlineBlock">Germany {{{helpers.svgIcon('chevronDown')}}}</a>
+			</h1>
+		</div>
+		<span class="display--block atMedium_display--none">
+			<div class="row row--center chunk align--center">
+				<div class="row-item row-item--shrink margin--right padding--top padding--bottom valign--middle">
+					<p class="text--bold">1,200</p>
+					<p>members</p>
+				</div>
+				<div class="row-item row-item--shrink border--left padding--top padding--bottom valign--middle">
+					<p class="text--bold">22</p>
+					<p>Meetups</p>
+				</div>
+			</div>
+		</span>
+
+		<div class="spreadable atMedium_spreadable--spread">
+			<div class="runningText spreadable-item valign--middle">
+				<p>Meet other local hiking enthusiasts. All those who are dedicated to hiking excursions near and far, with a focus on leaving no trace of litter on our lands!</p>
+			</div>
+			<div class="spreadable-item spreadable-item--shrink valign--middle">
+				<span class="display--none atMedium_display--block">
+					<div class="row row--center chunk align--center">
+						<div class="row-item row-item--shrink margin--right valign--middle">
+							<p class="text--bold">1,200</p>
+							<p>members</p>
+						</div>
+						<div class="row-item row-item--shrink border--left valign--middle">
+							<p class="text--bold">22</p>
+							<p>Meetups</p>
+						</div>
+					</div>
+				</span>
+			</div>
+		</div>
+		<div class="chunk">
+			<ul class="inlineblockList inlineBulletList">
+					<h3 class="display--inlineBlock matchLineHeight text--bold">Related topics: </h3> <!-- TODO:  Fix this before anybody sees it -->
+				{{#relatedTopics}}{{#data}}
+					<li><a href="/?topic={{urlkey}}" class="link" title="{{name}}">{{name}}</a></li>
+				{{/data}}{{/relatedTopics}}
+			</ul>
+		</div>
+
+		<p class="padding--all align--center chunk" style="background: #f3f6f9; border: 1px solid rgba(0,0,0,.12)">Map goes here</p>
+
+	</div></section>
+
+	<section class="stripe"><div class="bounds">
+		<div class="spreadable atMedium_spreadable--spread">
+		 	<div class="spreadable-item"><h3 class="text--headline chunk">Hiking Meetups near you</h3></div>
+		 	<div class="spreadable-item spreadable-item--shrink"><a href="http://www.meetup.com/find/?allMeetups=false&keywords=hiking&radius=5&userFreeform=Berlin&mcId=c1007698&change=yes&sort=default" class="button button--bordered button--fullWidth button--small display--none atMedium_display--block"><span class="valign--middle">more local Meetups</span> {{{helpers.svgIcon('chevronRight', 'valign--middle')}}}</a></div>
+		 </div>
+		<div class="spreadable atLarge_spreadable--spread">
+			<div class="spreadable-item">
+				<ul class="gridList gridList--has1 atMedium_gridList--has2">
+				{{#each localGroups:i}}
+					<li> <!--<li {{#if i>2}}class="display--inlineBlock atLarge_display--none"{{/if}}>-->
+						<a href="{{link}}" class="card card--group inverted" style="background-image: url({{photo}});">
+							<div class="card--group-content">
+								<h4 class="text--bold">{{name}}</h4>
+								<p>{{helpers.numberFormat(members)}} {{who}}</p>
+							</div>
+						</a>
+					</li>
+				{{/each}}
+				</ul>
+			</div>
+
+			<div class="spreadable-item spreadable-item--shrink atLarge_margin--left padding--all chunk inverted stripe--start">
+				<div class="align--center">
+					<h3 class="text--display text--bold">312</h3>
+					<p class="chunk">People near Berlin are interested in Hiking</p>
+					<a href="#" class="button button--primary">Start your own Meetup</a>
+				</div>
+			</div>
+		</div>
+	</div></section>
+
+	<section class="stripe"><div class="bounds">
+
+		<h2 class="text--headline align--center chunk">Largest Hiking Meetups</h2>
+
+		<ul>
+			{{#each globalGroups:i}}
+			<li class="chunk {{#if i>9}}display--none{{/if}}"><a href="{{link}}">
+
+				<span class="row">
+
+					<span class="row-item row-item--shrink">
+						<span class="text--headline text--bold text--countdown display--block align--center">{{i + 1}}</span>
+					</span>
+
+					<span class="row-item">
+
+						<span class="spreadable atLarge_spreadable--spread">
+							<span class="spreadable-item attachment">
+								<span class="text--bold display--block">{{name}}</span>
+								<span class="text--secondary text--small chunk">{{helpers.numberFormat(members)}} {{who}} in <a href="#" on-click="cityClick" data-city="{{city}}" class="link">{{city}}, {{^state}}{{country}}{{/state}}{{#state}}{{state}}{{/state}}</a></span>
+
+								{{#organizer}}
+								<span class="row display--none atLarge_display--block chunk">
+									<span class="row-item row-item--shrink row-item--alignMiddle" style="padding-left: 0;">
+										<span class="avatar avatar--person avatar--small" style="background-image: url('{{photo.thumb_link}}')"></span>
+									</span>
+									<span class="row-item row-item--alignMiddle text--secondary text--small">Organized by {{name}}</span>
+								</span>
+								{{/organizer}}
+
+							</span>
+							{{#if photos}}
+							<span class="spreadable-item spreadable-item--shrink">
+								<span class="chunk attachment">
+									<span class="row mugPhotos">
+										<span class="row-item imgFill mugPhotos--lg" style="background-image:url('{{photos[0].photo_link}}')"></span>
+										<span class="row-item row-item--shrink column mugPhotos--sm">
+											<span class="chunk imgFill column-item" style="background-image:url('{{photos[1].photo_link}}')"></span>
+											<span class="imgFill column-item" style="background-image:url('{{photos[2].photo_link}}')"></span>
+										</span>
+									</span>
+								</span>
+							</span>
+							{{/if}}
+						</span>
+
+						<span class="row display--block atLarge_display--none attachment chunk">
+							<span class="row-item row-item--shrink row-item--alignMiddle" style="padding-left: 0;">
+								<span class="avatar avatar--person avatar--small" style="background-image: url('{{organizer.photo.thumb_link}}')"></span>
+							</span>
+							<span class="row-item row-item--alignMiddle text--secondary text--small">Organized by {{organizer.name}}</span>
+						</span>
+
+					</span>
+
+				</span>
+			</a></li>
+			{{/each}}
+		</ul>
+		<div class="chunk align--center">
+			<a class="button button--bordered" on-click="moreLargest" href="#">Show more</a>
+			<div class="endlessLoader display--none"></div>
+		</div>
+
+	</div></section>
+
+	<section class="stripe"><div class="bounds">
+		<h2 class="text--headline align--center chunk">Newest Hiking Meetups</h2>
+		<ul class="gridList gridList--has1 atMedium_gridList--has3 chunk">
+		{{#newestGroups}}
+			<li>
+				<a href="{{link}}" class="align--left card card--group inverted" style="background-image: url({{^photo}}http://static2.meetupstatic.com/img/9634477557299433531/journey/simple/no_photo{{helpers.random(1,5)}}.png{{/photo}}{{#photo}}{{photo}}{{/photo}});">
+					<div class="card--group-content">
+						<h4 class="text--bold">{{name}}</h4>
+						<p>{{helpers.numberFormat(members)}} {{who}}</p>
+					</div>
+				</a>
+				<p class="text--small matchLineHeight">started {{helpers.dateRelative(created)}} in {{city}}, {{^state}}{{country}}{{/state}}{{#state}}{{state}}{{/state}}</p>
+			</li>
+		{{/newestGroups}}
+		</ul>
+	</div></section>
+
+	<footer class="stripe stripe--inverted inverted">
+		<div class="bounds">
+
+			<div class="spreadable atMedium_spreadable--spread">
+				<div class="spreadable-item chunk">
+					<a href="#" class="text--bold">Start a Meetup Group</a>
+				</div>
+				<div class="spreadable-item spreadable-item--shrink chunk">
+					<a href="#" >Log out</a>
+				</div>
+			</div>
+
+			<ul class="inlineblockList chunk bordered">
+				<li class="chunk"><a href="#">Help</a></li>
+				<li class="chunk"><a href="#">About Us</a></li>
+				<li class="chunk"><a href="#">Jobs</a></li>
+				<li class="chunk"><a href="#">Blog</a></li>
+				<li class="chunk"><a href="#">Tech Blog</a></li>
+				<li class="chunk"><a href="#">API</a></li>
+				<li class="chunk"><a href="#">Made in NYC</a></li>
+			</ul>
+
+			<ul class="inlineblockList text--small">
+				<li class="text--secondary">© 2015 Meetup</li>
+				<li class="chunk"><a href="#">Privacy</a></li>
+				<li class="chunk"><a href="#">Terms</a></li>
+			</ul>
+		</div>
+
+	</footer>
+</script>
+
+<script id="changeTopic" type="text/template">
+	<section class="stripe stripe--collection"><div class="bounds">
+		<div class="chunk">
+			<label for="topic-search" class="visibility--a11yHide">Search for a topic</label>
+			<input class="input--withIcon" id="topic-search" type="text" placeholder="Hiking" on-keyup="topicFuzzySearch" style="background-image:url('assets/img/magnifying-glass.svg')" />
+		</div>
+	</div></section>
+
+	<section class="stripe"><div class="bounds">
+
+		<div id="suggestedTopicArea">
+			<h3 class="text--bold chunk">Suggestions</h3>
+			<ul class="list">
+				{{#each sugTopics:i}}
+					<li class="list-item"><a href="/?topic={{sugTopics[i].best_topics[0].urlkey}}" class="chunk" title="{{sugTopics[i].best_topics[0].name}}">{{sugTopics[i].best_topics[0].name}}</a></li>
+				{{/each}}
+			</ul>
+		</div>
+
+		<div class="chunk display--none" id="loadingResults">
+			<div class="endlessLoader"></div>
+		</div>
+		<div class="chunk display--none" id="noResults">
+			<p>Sorry, we couldn't find any topics matching '<span class="text--bold">search string</span>'</p>
+		</div>
+		<div class="display--none" id="results">
+			<p class="chunk">Search results show here</p>
+			<!-- <ul class="list">
+				<li class="list-item"><a href="/?topic=hiking" class="chunk" title="Hiking">Hiking</a></li>
+				<li class="list-item"><a href="/?topic=spirituality" class="chunk" title="Hikes with Dogs">Hikes with Dogs</a></li>
+				<li class="list-item"><a href="/?topic=screenwriters" class="chunk" title="Outdoors and Hiking">Outdoors and Hiking</a></li>
+				<li class="list-item"><a href="/?topic=leadership" class="chunk" title="Urban Hiking">Urban Hiking</a></li>
+				<li class="list-item"><a href="/?topic=fashion-entrepreneurs-sharing-successful-secrets" class="chunk" title="Hiking with Friends">Hiking with Friends</a></li>
+				<li class="list-item"><a href="/?topic=dance-lessons" class="chunk" title="Hiking Singles">Hiking Singles</a></li>
+			</ul> -->
+		</div>
+
+	</div></section>
+</script>
+
+<script id="changeLocation" type="text/template">
+	<section class="stripe stripe--collection"><div class="bounds">
+		<div class="chunk">
+			<label for="topic-search" class="visibility--a11yHide">Search for a country</label>
+			<input class="input--withIcon" id="topic-search" type="text" placeholder="Search for a country" on-keyup="cityFuzzySearch" style="background-image:url('assets/img/magnifying-glass.svg')" />
+		</div>
+	</div></section>
+
+	<section class="stripe js-locationList"><div class="bounds">
+		<ul class="list chunk">
+			<li class="list-item"><a href="?geoScope=global" class="chunk link" title="new location">Worldwide</a></li>
+			<li class="list-item"><a href="?geoScope=country" class="chunk link text--bold" title="new location">Germany</a></li>
+		</ul>
+	</div></section>
+	<!-- <section class="stripe js-locationList"><div class="bounds">
+		<h3 class="text--bold chunk">Nearby cities</h3>
+		<ul class="list chunk">
+			<li class="list-item"><a href="?geoScope=local" class="chunk link" title="new location">Charlottenberg</a></li>
+			<li class="list-item"><a href="?geoScope=local" class="chunk link" title="new location">Wilmersdorf</a></li>
+			<li class="list-item"><a href="?geoScope=local" class="chunk link" title="new location">Potsdam</a></li>
+			<li class="list-item"><a href="?geoScope=local" class="chunk link" title="new location">Bradenberg</a></li>
+			<li class="list-item"><a href="?geoScope=local" class="chunk link" title="new location">Dresden</a></li>
+		</ul>
+	</div></section> -->
+
+	<section class="stripe display--none" id="cityResults"><div class="bounds">
+		<p class="chunk">Search results show here</p>
+	</div></section>
+
+</script>
+
+<!-- SVG icons -->
+<div id='icon-container'></div>
+<script src='assets/icons/icons.js'></script>
+
+<!-- JS -->
+<script type="text/javascript" src="assets/js/dist/scripts.min.js"></script>
+
+</body>
+</html>

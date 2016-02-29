@@ -1,0 +1,504 @@
+@charset "UTF-8";
+/*
+-----------------------------------------
+
+/\___ \         /\_ \
+\/__/\ \  __  __\//\ \      __   _____
+   _\ \ \/\ \/\ \ \ \ \   /'__`\/\ '__`\
+  /\ \_\ \ \ \_\ \ \_\ \_/\  __/\ \ \L\ \
+  \ \____/\ \____/ /\____\ \____\ \ ,__/
+   \/___/  \/___/  \/____/\/____/ \ \ \/
+                                   \ \_\
+
+-----------------------------------------
+
+Meetup Sass utilities
+
+https://github.com/meetup/julep
+*/
+/*doc
+---
+title: Programmatic contrast text
+name: getPrimaryTextColor
+parent: brightness
+---
+For a given background color, this function returns
+a text color value with appropriate contrast.
+
+_returns `color` value_
+
+```
+// -> color: $C_textPrimaryInverted; (white text on dark)
+color: getPrimaryTextColor(#000);
+
+// -> color: $C_textPrimary; (dark text on white)
+color: getPrimaryTextColor(#FFF);
+```
+*/
+/*doc
+---
+title: Flexbox
+name: flexboxUtil
+category: Sass Utils | Mixins & Placeholders
+---
+*/
+/*doc
+---
+title: Flex parent
+name: flexParentUtil
+parent: flexboxUtil
+---
+
+Sets flexbox properties for a flex parent (`display: flex;`)
+
+```
+@include flexParent('row'); // displays element as flex with children in row orientation
+@include flexParent('column'); // displays element as flex with children in column orientation
+
+@include flexParent('row', false); // optional second argument allows disabling of IE table display fallbacks
+```
+*/
+/*doc
+---
+title: Flex child
+name: flexChildUtil
+parent: flexboxUtil
+---
+
+Sets flexbox properties for a flex children.
+
+```
+@include flexChild('grow'); // sets element to grow to fill remaining space in flex parent
+@include flexChild('shrink'); // sets element to shirnk to the width of its content
+
+@include flexChild('shrink', false); // optional second argument allows disabling of IE table display fallbacks
+```
+*/
+/*doc
+---
+title: Alignment Utilities
+name: align
+category: Sass Utils | Mixins & Placeholders
+---
+*/
+/*doc
+---
+title: Vertical-align children
+name: valign
+parent: align
+---
+Aligns children of selected element using flexbox
+with a table-cell fallback for old IE.
+
+```
+@include valignChildren(center); // centers children in element
+@include valignChildren(top); // positions children to top of element
+@include valignChildren(bottom); // positions children to bottom of element
+```
+*/
+/*doc
+---
+title: Border utilities
+name: borderUtils
+category: Sass Utils | Mixins & Placeholders
+---
+*/
+/*doc
+---
+title: Standard border mixin
+name: borderMixin
+parent: borderUtils
+---
+Applies standard border using default `border-color`,
+including rules for inverted context.
+
+```
+@import standardBorder(); // default = top
+
+// apply border to bottom OR
+// 'top', 'left', 'right', 'bottom', 'all', 'none'
+@import standardBorder('bottom');
+
+// apply a custom size (default = 1px)
+@import standardBorder('all', 4px);
+```
+
+*/
+/*doc
+---
+title: Button utilities
+name: button
+category: Sass Utils | Mixins & Placeholders
+---
+*/
+/*doc
+---
+title: Button personality placeholder
+name: buttonPersonality
+parent: button
+---
+Disables user-select, sets cursor, and resets text-decoration.
+
+```
+@extend %buttonPersonality;
+```
+*/
+/*doc
+---
+title: data uri images
+name: datauri
+category: Sass Utils | Mixins & Placeholders
+---
+Sassquatch image dependencies are stored
+as data uris in a Sass map.
+
+```
+map-get($data-img-map, "orgBadge") // raw data uri
+
+// OR
+
+.elWithImgBackground {
+	@extend %backgroundImg--orgBadge; // sets background-image property
+}
+```
+
+Img Name            | Description
+------------------- | ----------------------------
+`orgBadge`          | Organizer badge
+`launcher`          | Form launcher input icon
+
+*/
+/*doc
+---
+title: Display utils
+name: display
+category: Sass Utils | Mixins & Placeholders
+---
+*/
+/*doc
+---
+title: Pseudo-element display mixin
+name: pseudoDisplay
+parent: display
+---
+Sets display property for psuedo-elements
+
+```
+@include pseudoDisplay($value: block);
+```
+*/
+/*doc
+---
+title: Modal mixins
+name: modalUtils
+category: Sass Utils | Mixins & Placeholders
+---
+*/
+/*doc
+---
+title: Modal Dialog Mixin
+parent: modalUtils
+---
+
+Use this mixin to get the behavior of a [Snap Modal View][snapModalView],
+a view that snaps to full page on small screens and a dialog on larger formats.
+
+```
+	@include modal-dialog;
+
+```
+*/
+/*doc
+---
+title: Modal Full Mixin
+parent: modalUtils
+---
+
+Use this mixin to get behavior of a full page modal.
+See [the Full Modal View documentation][fullModalView]
+
+```
+	@include modal-full;
+
+```
+*/
+/*doc
+---
+title: Shadow utilities
+name: shadow
+category: Sass Utils | Mixins & Placeholders
+---
+*/
+/*doc
+---
+title: Shadow placeholder
+name: shadowPlaceholder
+parent: shadow
+---
+Applies standard box-shadow
+
+```
+@extend %shadow;
+```
+*/
+/*doc
+---
+title: Text utils
+name: text
+category: Sass Utils | Mixins & Placeholders
+---
+*/
+/*doc
+---
+title: Link color
+name: linkColorPlaceholder
+parent: text
+---
+Forces an element to use link-like styling.
+
+```
+@extend %link;
+```
+*/
+/*doc
+---
+title: Text wrap
+name: textWrapUtil
+parent: text
+---
+Nice hyphenation and wrapping for running text.
+
+```
+@extend %link;
+```
+*/
+/*doc
+---
+title: Text protection shim
+name: textProtection
+parent: text
+---
+Adds a pseudo-element gradient
+
+```
+@mixin textProtectionScrim($placement: 'top'); // 'bottom' will place gradent on bottom of el
+```
+*/
+#icon-container {
+  display: none; }
+
+.icon {
+  display: inline-block;
+  width: 24px;
+  height: 24px; }
+  .icon use {
+    stroke: none;
+    fill: rgba(0, 0, 0, 0.54); }
+
+.link .icon use, .toggleButton .icon use {
+  fill: #3987cb; }
+
+.inverted .icon use {
+  fill: white; }
+
+.icon--hint use {
+  fill: rgba(0, 0, 0, 0.26); }
+
+.icon-chevronDown use {
+  fill: #3987cb; }
+
+.icon-card-join {
+  width: 36px;
+  height: 36px; }
+
+.mainNav {
+  min-height: 64px;
+  padding: 0 16px;
+  -webkit-box-pack: justify;
+  box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-justify-content: space-between;
+  justify-content: space-between;
+  -ms-flex-pack: justify; }
+  @media only screen and (min-width: 640px) {
+    .mainNav {
+      -webkit-box-pack: start;
+      box-pack: start;
+      -webkit-justify-content: flex-start;
+      -ms-justify-content: flex-start;
+      justify-content: flex-start;
+      -ms-flex-pack: start; } }
+
+.mainNav-item {
+  padding: 8px; }
+  @media only screen and (min-width: 640px) {
+    .mainNav-item {
+      margin-right: 16px; }
+      .mainNav-item:last-child {
+        margin-right: 0; } }
+
+@media only screen and (min-width: 640px) {
+  .mainNav-item--profile {
+    border-left: 1px solid rgba(0, 0, 0, 0.12);
+    padding: 16px 0 16px 16px;
+    height: 64px; } }
+.mainNav-item--profile .avatar--small {
+  height: 32px;
+  width: 32px; }
+
+.mainNav-logo {
+  height: 24px; }
+  @media only screen and (min-width: 640px) {
+    .mainNav-logo {
+      height: 36px; } }
+
+.mainNav-item-label {
+  padding-top: 4px;
+  font-size: 10px; }
+  @media only screen and (min-width: 440px) {
+    .mainNav-item-label {
+      font-size: 13px; } }
+
+.mainNav-item--active {
+  border-bottom: 3px solid #e2373c;
+  font-weight: 700;
+  color: rgba(0, 0, 0, 0.87); }
+
+.runningText p {
+  max-width: 40em; }
+
+.toggleButton--lg .toggleButton-label {
+  font-size: 16px !important; }
+
+.input--withIcon {
+  background-position: 8px center;
+  background-repeat: no-repeat;
+  background-size: 24px;
+  padding-left: 40px; }
+
+.inlineBulletList li:after {
+  content: '·';
+  padding-left: 8px; }
+.inlineBulletList li:last-child:after {
+  display: none; }
+
+.attachment .row-item:first-child {
+  padding-left: 0; }
+
+.toggleButton-input:checked + .toggleButton-label:hover {
+  color: #3987cb; }
+  .toggleButton-input:checked + .toggleButton-label:hover use {
+    fill: #3987cb; }
+
+.endlessLoader, .endlessLoader:before, .endlessLoader:after {
+  -webkit-animation: dotAnim 500ms ease -125ms infinite alternate;
+  animation: dotAnim 500ms ease -125ms infinite alternate;
+  background: rgba(0, 0, 0, 0.12);
+  border-radius: 100%;
+  content: "";
+  height: 8px;
+  position: relative;
+  width: 8px; }
+
+.endlessLoader:before {
+  position: absolute;
+  left: -16px;
+  -webkit-animation: dotAnim 500ms ease -250ms infinite alternate;
+  animation: dotAnim 500ms ease -250ms infinite alternate; }
+
+.endlessLoader:after {
+  position: absolute;
+  left: 16px;
+  -webkit-animation: dotAnim 500ms ease infinite alternate;
+  animation: dotAnim 500ms ease infinite alternate; }
+
+@-webkit-keyframes dotAnim {
+  to {
+    background: black;
+    box-shadow: -1px 0 0 1px rgba(0, 0, 0, 0.87); } }
+@keyframes dotAnim {
+  to {
+    background: black;
+    box-shadow: -1px 0 0 1px rgba(0, 0, 0, 0.87); } }
+@media only screen and (min-width: 840px) {
+  .atLarge_margin--left {
+    margin-left: 16px; } }
+
+.border--left {
+  border-left: 1px solid rgba(0, 0, 0, 0.12); }
+
+.span--100 {
+  width: 100%; }
+
+.text--wrangleLarge {
+  font-size: calc(2vw + 2vh + 1vmin); }
+  @media only screen and (min-width: 640px) {
+    .text--wrangleLarge {
+      font-size: 32px; } }
+
+.text--wrangleLarge2 {
+  font-size: 32px; }
+  @media only screen and (min-width: 640px) {
+    .text--wrangleLarge2 {
+      font-size: 24px; } }
+
+.titleFilter {
+  border-bottom: 2px solid #3987cb; }
+
+.stripe--start {
+  background-image: url("../../assets/img/swarm.png");
+  background-color: #180F3B;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 1100px 333px;
+  border-radius: 3px;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+  @media only screen and (min-width: 840px) {
+    .stripe--start.spreadable-item {
+      flex-basis: 33%; } }
+
+.mugPhotos {
+  max-width: 384px;
+  height: 120px;
+  width: 100%; }
+  @media only screen and (min-width: 840px) {
+    .mugPhotos {
+      width: 240px;
+      height: 120px; } }
+  .mugPhotos--sm {
+    width: 33.33333%; }
+  .mugPhotos--lg {
+    width: 66.66667%; }
+
+.text--countdown {
+  width: 48px; }
+
+.icon--inlineBodyText {
+  height: 16px;
+  width: 16px; }
+
+.hasNav #main .view-head {
+  display: none !important; }
+
+.view--modal-snap .stripe:first-child {
+  padding-top: 56px; }
+  @media only screen and (min-width: 640px) {
+    .view--modal-snap .stripe:first-child {
+      padding-top: 64px; } }
+
+.toggleButton-input + .toggleButton-label .follow-inactive {
+  display: inline; }
+.toggleButton-input + .toggleButton-label .follow-active {
+  display: none; }
+
+.toggleButton-input:checked + .toggleButton-label use {
+  fill: white; }
+.toggleButton-input:checked + .toggleButton-label .follow-inactive {
+  display: none; }
+.toggleButton-input:checked + .toggleButton-label .follow-active {
+  display: inline; }
+
+/*# sourceMappingURL=globalTopics.css.map */

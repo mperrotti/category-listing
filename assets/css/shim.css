@@ -1,0 +1,440 @@
+/*
+-----------------------------------------
+
+/\___ \         /\_ \
+\/__/\ \  __  __\//\ \      __   _____
+   _\ \ \/\ \/\ \ \ \ \   /'__`\/\ '__`\
+  /\ \_\ \ \ \_\ \ \_\ \_/\  __/\ \ \L\ \
+  \ \____/\ \____/ /\____\ \____\ \ ,__/
+   \/___/  \/___/  \/____/\/____/ \ \ \/
+                                   \ \_\
+
+-----------------------------------------
+
+Meetup Sass utilities
+
+https://github.com/meetup/julep
+*/
+/*doc
+---
+title: Programmatic contrast text
+name: getPrimaryTextColor
+parent: brightness
+---
+For a given background color, this function returns
+a text color value with appropriate contrast.
+
+_returns `color` value_
+
+```
+// -> color: $C_textPrimaryInverted; (white text on dark)
+color: getPrimaryTextColor(#000);
+
+// -> color: $C_textPrimary; (dark text on white)
+color: getPrimaryTextColor(#FFF);
+```
+*/
+/*doc
+---
+title: Flexbox
+name: flexboxUtil
+category: Sass Utils | Mixins & Placeholders
+---
+*/
+/*doc
+---
+title: Flex parent
+name: flexParentUtil
+parent: flexboxUtil
+---
+
+Sets flexbox properties for a flex parent (`display: flex;`)
+
+```
+@include flexParent('row'); // displays element as flex with children in row orientation
+@include flexParent('column'); // displays element as flex with children in column orientation
+
+@include flexParent('row', false); // optional second argument allows disabling of IE table display fallbacks
+```
+*/
+/*doc
+---
+title: Flex child
+name: flexChildUtil
+parent: flexboxUtil
+---
+
+Sets flexbox properties for a flex children.
+
+```
+@include flexChild('grow'); // sets element to grow to fill remaining space in flex parent
+@include flexChild('shrink'); // sets element to shirnk to the width of its content
+
+@include flexChild('shrink', false); // optional second argument allows disabling of IE table display fallbacks
+```
+*/
+/*doc
+---
+title: Alignment Utilities
+name: align
+category: Sass Utils | Mixins & Placeholders
+---
+*/
+/*doc
+---
+title: Vertical-align children
+name: valign
+parent: align
+---
+Aligns children of selected element using flexbox
+with a table-cell fallback for old IE.
+
+```
+@include valignChildren(center); // centers children in element
+@include valignChildren(top); // positions children to top of element
+@include valignChildren(bottom); // positions children to bottom of element
+```
+*/
+/*doc
+---
+title: Border utilities
+name: borderUtils
+category: Sass Utils | Mixins & Placeholders
+---
+*/
+/*doc
+---
+title: Standard border mixin
+name: borderMixin
+parent: borderUtils
+---
+Applies standard border using default `border-color`,
+including rules for inverted context.
+
+```
+@import standardBorder(); // default = top
+
+// apply border to bottom OR
+// 'top', 'left', 'right', 'bottom', 'all', 'none'
+@import standardBorder('bottom');
+
+// apply a custom size (default = 1px)
+@import standardBorder('all', 4px);
+```
+
+*/
+/*doc
+---
+title: Button utilities
+name: button
+category: Sass Utils | Mixins & Placeholders
+---
+*/
+/*doc
+---
+title: Button personality placeholder
+name: buttonPersonality
+parent: button
+---
+Disables user-select, sets cursor, and resets text-decoration.
+
+```
+@extend %buttonPersonality;
+```
+*/
+.momentary li a {
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  cursor: pointer;
+  text-decoration: none !important; }
+
+/*doc
+---
+title: data uri images
+name: datauri
+category: Sass Utils | Mixins & Placeholders
+---
+Sassquatch image dependencies are stored
+as data uris in a Sass map.
+
+```
+map-get($data-img-map, "orgBadge") // raw data uri
+
+// OR
+
+.elWithImgBackground {
+	@extend %backgroundImg--orgBadge; // sets background-image property
+}
+```
+
+Img Name            | Description
+------------------- | ----------------------------
+`orgBadge`          | Organizer badge
+`launcher`          | Form launcher input icon
+
+*/
+/*doc
+---
+title: Display utils
+name: display
+category: Sass Utils | Mixins & Placeholders
+---
+*/
+/*doc
+---
+title: Pseudo-element display mixin
+name: pseudoDisplay
+parent: display
+---
+Sets display property for psuedo-elements
+
+```
+@include pseudoDisplay($value: block);
+```
+*/
+/*doc
+---
+title: Modal mixins
+name: modalUtils
+category: Sass Utils | Mixins & Placeholders
+---
+*/
+/*doc
+---
+title: Modal Dialog Mixin
+parent: modalUtils
+---
+
+Use this mixin to get the behavior of a [Snap Modal View][snapModalView],
+a view that snaps to full page on small screens and a dialog on larger formats.
+
+```
+	@include modal-dialog;
+
+```
+*/
+/*doc
+---
+title: Modal Full Mixin
+parent: modalUtils
+---
+
+Use this mixin to get behavior of a full page modal.
+See [the Full Modal View documentation][fullModalView]
+
+```
+	@include modal-full;
+
+```
+*/
+/*doc
+---
+title: Shadow utilities
+name: shadow
+category: Sass Utils | Mixins & Placeholders
+---
+*/
+/*doc
+---
+title: Shadow placeholder
+name: shadowPlaceholder
+parent: shadow
+---
+Applies standard box-shadow
+
+```
+@extend %shadow;
+```
+*/
+.momentary {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); }
+
+/*doc
+---
+title: Text utils
+name: text
+category: Sass Utils | Mixins & Placeholders
+---
+*/
+/*doc
+---
+title: Link color
+name: linkColorPlaceholder
+parent: text
+---
+Forces an element to use link-like styling.
+
+```
+@extend %link;
+```
+*/
+/*doc
+---
+title: Text wrap
+name: textWrapUtil
+parent: text
+---
+Nice hyphenation and wrapping for running text.
+
+```
+@extend %link;
+```
+*/
+/*doc
+---
+title: Text protection shim
+name: textProtection
+parent: text
+---
+Adds a pseudo-element gradient
+
+```
+@mixin textProtectionScrim($placement: 'top'); // 'bottom' will place gradent on bottom of el
+```
+*/
+.view-head {
+  position: fixed; }
+
+.view.off {
+  display: none; }
+
+@media only screen and (min-width: 640px) {
+  .view--splitDetail .viewHead-back {
+    display: none; } }
+.runningText img {
+  max-width: 100%; }
+
+.view.view--modal-full {
+  -webkit-transform: translate3d(0, 0, 0);
+  -ms-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+  -webkit-transition: -webkit-transform 0.3s;
+  -moz-transition: -moz-transform 0.3s;
+  transition: transform 0.3s;
+  left: 0;
+  margin: 0;
+  min-height: 100vh;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: 30; }
+  .view.view--modal-full.off {
+    -webkit-transform: translateY(100vh);
+    -ms-transform: translateY(100vh);
+    transform: translateY(100vh); }
+
+.view.view--modal-snap {
+  -webkit-transform: translate3d(0, 0, 0);
+  -ms-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+  -webkit-transition: -webkit-transform 0.3s;
+  -moz-transition: -moz-transform 0.3s;
+  transition: transform 0.3s;
+  left: 0;
+  margin: 0;
+  min-height: 100vh;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: 30; }
+  .view.view--modal-snap.off {
+    -webkit-transform: translateY(100vh);
+    -ms-transform: translateY(100vh);
+    transform: translateY(100vh); }
+  @media only screen and (min-width: 440px) {
+    .view.view--modal-snap {
+      -webkit-transform: translate3d(0, 0, 0);
+      -ms-transform: translate3d(0, 0, 0);
+      transform: translate3d(0, 0, 0);
+      -webkit-transition: -webkit-transform 0.2s ease;
+      -moz-transition: -moz-transform 0.2s ease;
+      transition: transform 0.2s ease;
+      position: absolute;
+      left: 50%;
+      margin-left: -220px;
+      min-height: 0;
+      width: 440px;
+      margin-top: 10vh; }
+      .view.view--modal-snap.off {
+        -webkit-transform: translateY(100vh);
+        -ms-transform: translateY(100vh);
+        transform: translateY(100vh); } }
+
+.shade {
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: 20;
+  -webkit-transition: all 0.15s;
+  transition: all 0.15s;
+  background: rgba(0, 0, 0, 0.75);
+  opacity: 1; }
+  .shade.off {
+    opacity: 0; }
+
+.momentary {
+  -webkit-transition: -webkit-transform 150ms cubic-bezier(0.895, 0.03, 0.685, 0.22), opacity 150ms cubic-bezier(0.895, 0.03, 0.685, 0.22);
+  -moz-transition: -moz-transform 150ms cubic-bezier(0.895, 0.03, 0.685, 0.22), opacity 150ms cubic-bezier(0.895, 0.03, 0.685, 0.22);
+  transition: transform 150ms cubic-bezier(0.895, 0.03, 0.685, 0.22), opacity 150ms cubic-bezier(0.895, 0.03, 0.685, 0.22);
+  -webkit-transform: translateY(0);
+  -ms-transform: translateY(0);
+  transform: translateY(0);
+  background: white;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  border-radius: 3px;
+  opacity: 1;
+  position: absolute;
+  transition-duration: 0.05s !important;
+  min-width: 100px;
+  z-index: 30; }
+  .momentary.off {
+    opacity: 0; }
+  .momentary.top-left {
+    margin-left: -12px; }
+  .momentary.top-right {
+    margin-left: 12px; }
+  .momentary .momentary-btn-list {
+    background: white;
+    list-style: none;
+    margin: 0;
+    padding-left: 0; }
+  .momentary li a {
+    display: block;
+    height: 48px;
+    line-height: 48px;
+    min-width: 100%;
+    box-sizing: border-box;
+    padding: 0 8px; }
+  .momentary .ios-cancel {
+    display: none; }
+
+.dialog {
+  -webkit-transform: translate3d(0, 0, 0);
+  -ms-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+  -webkit-transition: -webkit-transform 0.2s ease;
+  -moz-transition: -moz-transform 0.2s ease;
+  transition: transform 0.2s ease;
+  position: absolute;
+  left: 50%;
+  margin-left: -220px;
+  min-height: 0;
+  width: 440px;
+  margin-top: 10vh;
+  z-index: 30;
+  margin-left: 0;
+  min-height: 0;
+  left: 16px;
+  right: 16px;
+  width: auto; }
+  .dialog.off {
+    -webkit-transform: translateY(100vh);
+    -ms-transform: translateY(100vh);
+    transform: translateY(100vh); }
+  .dialog img {
+    max-width: 100%; }
+
+/*# sourceMappingURL=shim.css.map */
