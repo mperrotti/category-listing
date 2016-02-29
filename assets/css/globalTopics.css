@@ -501,4 +501,8 @@ Adds a pseudo-element gradient
 .toggleButton-input:checked + .toggleButton-label .follow-active {
   display: inline; }
 
+.media--xxl {
+  height: auto;
+  width: 240px; }
+
 /*# sourceMappingURL=globalTopics.css.map */
