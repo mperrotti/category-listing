@@ -505,4 +505,9 @@ Adds a pseudo-element gradient
   height: auto;
   width: 240px; }
 
+.topicList ul {
+  padding-top: 16px; }
+  .topicList ul.attachment {
+    padding-top: 8px; }
+
 /*# sourceMappingURL=globalTopics.css.map */

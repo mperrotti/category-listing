@@ -219,3 +219,10 @@ $dotTimeBase: 500;
 	height: auto;
 	width: $block-5;
 }
+
+.topicList ul {
+	padding-top: $space;
+	&.attachment {
+		padding-top: $space-half;
+	}
+}

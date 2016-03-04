@@ -3,7 +3,7 @@
 <head>
 	<meta charset="UTF-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
-	<title>Hiking Meetups - Berlin - Meetup</title>
+	<title>Topics</title>
 
 	<!-- Whitney -->
 	<link rel="stylesheet" href="./assets/whitney.css" />
@@ -29,6 +29,13 @@
 <body>
 
 <script type="text/template" id="main-template">
+	<section class="stripe stripe--collection"><div class="padding--left padding--top padding--right">
+		<ul class="inlineblockList chunk" itemprop="breadcrumb">
+			<li itemscope="" itemtype="http://schema.org/ListItem"><a class="link" href="http://www.meetup.com/" itemprop="item"><span itemprop="name">Home</span></a></li>
+			<li>&gt;</li>
+			<li itemscope="" itemtype="http://schema.org/ListItem"><span itemprop="name">Topics</span></li>
+		</ul>
+	</div></section>
 
 	<!-- ARTS & CULTURE -->
 	<section class="stripe"><div class="bounds">
@@ -53,15 +60,15 @@
 				<p class="chunk">Meet others into arts and culture at a local Meetup. Fine arts, theatre, and everything related - come to take it all in, share stories and make new friends.</p>
 			</div>
 			<div class="row-item row-item--shrink">
-				<div class="display--none atMedium_display--block">
-					<img src="assets/img/categories/artsculture.jpeg" alt="artsculture" class="media--xxl">
-					<p class="text--caption">Photo of <a href="#" class="link">Denver Art and Food Meetup</a></p>
+				<div class="display--none atMedium_display--block media--xxl chunk">
+					<img src="assets/img/categories/artsculture.jpg" alt="artsculture" class="span--100">
+					<p class="text--caption">Photo of <a href="#" class="link">London Art Classes - Drawing & Painting / Life Drawing</a></p>
 				</div>
 			</div>
 		</div>
 
-		<div class="spreadble atLarge_spreadable--spread chunk text--small">
-			<ul class="list spreadable-item attachment chunk">
+		<div class="spreadble atLarge_spreadable--spread chunk text--small topicList">
+			<ul class="list spreadable-item attachment">
 				<li class="list-item"><a href="http://www.meetup.com/topics/improv/" class="link chunk wrap--singleLine--truncate">Improv</a></li>
 				<li class="list-item"><a href="http://www.meetup.com/topics/art-museums/" class="link chunk wrap--singleLine--truncate">Art Museums</a></li>
 				<li class="list-item"><a href="http://www.meetup.com/topics/sketching/" class="link chunk wrap--singleLine--truncate">Sketching</a></li>
@@ -74,7 +81,7 @@
 				<li class="list-item"><a href="http://www.meetup.com/topics/arts/" class="link chunk wrap--singleLine--truncate">Arts &amp; Entertainment</a></li>
 
 			</ul>
-			<ul class="list spreadable-item attachment border--top atLarge_border--none chunk">
+			<ul class="list spreadable-item attachment border--top atLarge_border--none">
 				<li class="list-item"><a href="http://www.meetup.com/topics/museum/" class="link chunk wrap--singleLine--truncate">Museum</a></li>
 				<li class="list-item"><a href="http://www.meetup.com/topics/groupart/" class="link chunk wrap--singleLine--truncate">Group Art</a></li>
 				<li class="list-item"><a href="http://www.meetup.com/topics/creative/" class="link chunk wrap--singleLine--truncate">Creativity</a></li>
@@ -85,9 +92,9 @@
 				<li class="list-item"><a href="http://www.meetup.com/topics/draw/" class="link chunk wrap--singleLine--truncate">Drawing</a></li>
 				<li class="list-item"><a href="http://www.meetup.com/topics/figuredrawing/" class="link chunk wrap--singleLine--truncate">Figure Drawing</a></li>
 				<li class="list-item"><a href="http://www.meetup.com/topics/fine-arts/" class="link chunk wrap--singleLine--truncate">Fine Arts</a></li>
-				<li class="list-item display--block atLarge_display--none"><a href="#" class="link chunk wrap--singleLine--truncate">show more</a></li>
+				<li class="list-item display--block atLarge_display--none"><a href="#" class="link chunk wrap--singleLine--truncate text--bold">show more</a></li>
 			</ul>
-			<ul class="list spreadable-item attachment border--top atLarge_border--none chunk display--none atLarge_display--block">
+			<ul class="list spreadable-item attachment border--top atLarge_border--none display--none atLarge_display--block">
 				<li class="list-item"><a href="http://www.meetup.com/topics/art-galleries/" class="link chunk wrap--singleLine--truncate">Art Galleries</a></li>
 				<li class="list-item"><a href="http://www.meetup.com/topics/historic-buildings/" class="link chunk wrap--singleLine--truncate">Historic Buildings</a></li>
 				<li class="list-item"><a href="http://www.meetup.com/topics/creativecircle/" class="link chunk wrap--singleLine--truncate">Creative Circle</a></li>
@@ -100,7 +107,7 @@
 				<li class="list-item"><a href="http://www.meetup.com/topics/musical-theatre/" class="link chunk wrap--singleLine--truncate">Musical Theatre</a></li>
 
 			</ul>
-			<ul class="list spreadable-item attachment border--top atLarge_border--none chunk display--none atLarge_display--block">
+			<ul class="list spreadable-item attachment border--top atLarge_border--none display--none atLarge_display--block">
 				<li class="list-item"><a href="http://www.meetup.com/topics/cultural-activities/" class="link chunk wrap--singleLine--truncate">Cultural Activities</a></li>
 				<li class="list-item"><a href="http://www.meetup.com/topics/boston-artists/" class="link chunk wrap--singleLine--truncate">Artists</a></li>
 				<li class="list-item"><a href="http://www.meetup.com/topics/spoken-word/" class="link chunk wrap--singleLine--truncate">Spoken Word</a></li>
@@ -131,7 +138,145 @@
 	</div></section>
 
 	<!-- BOOK CLUBS -->
+	<section class="stripe"><div class="bounds">
 
+		<div class="row">
+			<div class="row-item">
+				<h3 class="text--headline chunk">Book Clubs</h3>
+				<div class="spreadable-item spreadable-item--shrink valign--middle">
+					<span class="display--none atMedium_display--block">
+						<div class="row chunk">
+							<div class="row-item row-item--shrink margin--right valign--middle">
+								<p class="text--bold">1,200</p>
+								<p>members</p>
+							</div>
+							<div class="row-item row-item--shrink border--left valign--middle">
+								<p class="text--bold">22</p>
+								<p>Meetups</p>
+							</div>
+						</div>
+					</span>
+				</div>
+				<p class="chunk">Meet others into arts and culture at a local Meetup. Fine arts, theatre, and everything related - come to take it all in, share stories and make new friends.</p>
+			</div>
+			<div class="row-item row-item--shrink">
+				<div class="display--none atMedium_display--block media--xxl chunk">
+					<img src="assets/img/categories/bookclub.jpg" alt="artsculture" class="span--100">
+					<p class="text--caption">Photo of <a href="#" class="link">The Book Club</a></p>
+				</div>
+			</div>
+		</div>
+
+		<div class="spreadble atLarge_spreadable--spread chunk text--small topicList">
+			<ul class="list spreadable-item attachment">
+				<li class="list-item"><a href="http://www.meetup.com/topics/novel-reading/" class="link chunk wrap--singleLine--truncate">Novel Reading</a></li>
+				<li class="list-item"><a href="http://www.meetup.com/topics/bookclub/" class="link chunk wrap--singleLine--truncate">Book Club</a></li>
+				<li class="list-item"><a href="http://www.meetup.com/topics/literature/" class="link chunk wrap--singleLine--truncate">Literature</a></li>
+			</ul>
+			<ul class="list spreadable-item attachment border--top atLarge_border--none">
+				<li class="list-item"><a href="http://www.meetup.com/topics/book-swap/" class="link chunk wrap--singleLine--truncate">Book Swap</a></li>
+				<li class="list-item"><a href="http://www.meetup.com/topics/classics/" class="link chunk wrap--singleLine--truncate">Classic Books</a></li>
+				<li class="list-item"><a href="http://www.meetup.com/topics/womens-book-club/" class="link chunk wrap--singleLine--truncate">Women's Book Club</a></li>
+			</ul>
+			<ul class="list spreadable-item attachment border--top atLarge_border--none">
+				<li class="list-item"><a href="http://www.meetup.com/topics/reading/" class="link chunk wrap--singleLine--truncate">Reading</a></li>
+				<li class="list-item"><a href="http://www.meetup.com/topics/coffee-books/" class="link chunk wrap--singleLine--truncate">Coffee &amp; Books</a></li>
+				<li class="list-item"><a href="http://www.meetup.com/topics/books-and-drinks/" class="link chunk wrap--singleLine--truncate">Books and Drinks</a></li>
+			</ul>
+			<ul class="list spreadable-item attachment border--top atLarge_border--none">
+				<li class="list-item"><a href="http://www.meetup.com/topics/africanamerauth/" class="link chunk wrap--singleLine--truncate">African-American Authors</a></li>
+				<li class="list-item"><a href="http://www.meetup.com/topics/fiction/" class="link chunk wrap--singleLine--truncate">Fiction</a></li>
+				<li class="list-item"><a href="http://www.meetup.com/topics/readers/" class="link chunk wrap--singleLine--truncate">Readers</a></li>
+			</ul>
+		</div>
+	</div></section>
+
+	<!-- CAREER & BUSINESS -->
+	<section class="stripe"><div class="bounds">
+
+		<div class="row">
+			<div class="row-item">
+				<h3 class="text--headline chunk">Career & Business</h3>
+				<div class="spreadable-item spreadable-item--shrink valign--middle">
+					<span class="display--none atMedium_display--block">
+						<div class="row chunk">
+							<div class="row-item row-item--shrink margin--right valign--middle">
+								<p class="text--bold">1,200</p>
+								<p>members</p>
+							</div>
+							<div class="row-item row-item--shrink border--left valign--middle">
+								<p class="text--bold">22</p>
+								<p>Meetups</p>
+							</div>
+						</div>
+					</span>
+				</div>
+				<p class="chunk">Meet other people interesting in business and furthering their careers.</p>
+			</div>
+			<div class="row-item row-item--shrink">
+				<div class="display--none atMedium_display--block media--xxl chunk">
+					<img src="assets/img/categories/careerbiz.jpg" alt="artsculture" class="span--100">
+					<p class="text--caption">Photo of <a href="#" class="link">Business MUG Name</a></p>
+				</div>
+			</div>
+		</div>
+
+		<div class="spreadble atLarge_spreadable--spread chunk text--small topicList">
+			<ul class="list spreadable-item attachment">
+				<li class="list-item"><a href="http://www.meetup.com/topics/coworking/" class="link chunk wrap--singleLine--truncate">Coworking</a></li>
+				<li class="list-item"><a href="http://www.meetup.com/topics/fundraising/" class="link chunk wrap--singleLine--truncate">Fundraising</a></li>
+				<li class="list-item"><a href="http://www.meetup.com/topics/advertising/" class="link chunk wrap--singleLine--truncate">Advertising</a></li>
+				<li class="list-item"><a href="http://www.meetup.com/topics/blackbiz/" class="link chunk wrap--singleLine--truncate">Black Professionals</a></li>
+				<li class="list-item"><a href="http://www.meetup.com/topics/working-abroad/" class="link chunk wrap--singleLine--truncate">Working Abroad</a></li>
+				<li class="list-item"><a href="http://www.meetup.com/topics/asianpros/" class="link chunk wrap--singleLine--truncate">Asian Professionals</a></li>
+				<li class="list-item"><a href="http://www.meetup.com/topics/affiliate-marketing/" class="link chunk wrap--singleLine--truncate">Affiliate Marketing</a></li>
+				<li class="list-item"><a href="http://www.meetup.com/topics/3d-modeling/" class="link chunk wrap--singleLine--truncate">3D Modeling</a></li>
+				<li class="list-item"><a href="http://www.meetup.com/topics/angel-investors/" class="link chunk wrap--singleLine--truncate">Angel Investors</a></li>
+				<li class="list-item"><a href="http://www.meetup.com/topics/career-network/" class="link chunk wrap--singleLine--truncate">Career Network</a></li>
+			</ul>
+
+			<ul class="list spreadable-item attachment border--top atLarge_border--none">
+				<li class="list-item"><a href="http://www.meetup.com/topics/b2b-networking/" class="link chunk wrap--singleLine--truncate">B2B Networking</a></li>
+				<li class="list-item"><a href="http://www.meetup.com/topics/beginner-new-real-estate-investor/" class="link chunk wrap--singleLine--truncate">Beginner Real Estate Investing</a></li>
+				<li class="list-item"><a href="http://www.meetup.com/topics/workathome/" class="link chunk wrap--singleLine--truncate">Work At Home</a></li>
+				<li class="list-item"><a href="http://www.meetup.com/topics/accounting/" class="link chunk wrap--singleLine--truncate">Accounting</a></li>
+				<li class="list-item"><a href="http://www.meetup.com/topics/black-entrepreneurs/" class="link chunk wrap--singleLine--truncate">Black Entrepreneurs</a></li>
+				<li class="list-item"><a href="http://www.meetup.com/topics/commodities/" class="link chunk wrap--singleLine--truncate">Commodities Trade</a></li>
+				<li class="list-item"><a href="http://www.meetup.com/topics/construction/" class="link chunk wrap--singleLine--truncate">Construction</a></li>
+				<li class="list-item"><a href="http://www.meetup.com/topics/building-residual-income/" class="link chunk wrap--singleLine--truncate">Building Residual Income</a></li>
+				<li class="list-item"><a href="http://www.meetup.com/topics/womens-networking/" class="link chunk wrap--singleLine--truncate">Women's Networking</a></li>
+				<li class="list-item"><a href="http://www.meetup.com/topics/work-life-balance/" class="link chunk wrap--singleLine--truncate">Work-Life Balance</a></li>
+				<li class="list-item display--block atLarge_display--none"><a href="#" class="link chunk wrap--singleLine--truncate text--bold">show more</a></li>
+			</ul>
+
+			<ul class="list spreadable-item attachment border--top atLarge_border--none display--none atLarge_display--block">
+				<li class="list-item"><a href="http://www.meetup.com/topics/building-an-online-business/" class="link chunk wrap--singleLine--truncate">Building an Online Business</a></li>
+				<li class="list-item"><a href="http://www.meetup.com/topics/careers/" class="link chunk wrap--singleLine--truncate">Career</a></li>
+				<li class="list-item"><a href="http://www.meetup.com/topics/business/" class="link chunk wrap--singleLine--truncate">Business</a></li>
+				<li class="list-item"><a href="http://www.meetup.com/topics/business-development/" class="link chunk wrap--singleLine--truncate">Business Development</a></li>
+				<li class="list-item"><a href="http://www.meetup.com/topics/consultant/" class="link chunk wrap--singleLine--truncate">Consulting</a></li>
+				<li class="list-item"><a href="http://www.meetup.com/topics/business-owners/" class="link chunk wrap--singleLine--truncate">Business Owners</a></li>
+				<li class="list-item"><a href="http://www.meetup.com/topics/business-referral-networking/" class="link chunk wrap--singleLine--truncate">Business Referral Networking</a></li>
+				<li class="list-item"><a href="http://www.meetup.com/topics/eventplanning/" class="link chunk wrap--singleLine--truncate">Event Planning</a></li>
+				<li class="list-item"><a href="http://www.meetup.com/topics/financial-planning/" class="link chunk wrap--singleLine--truncate">Financial Planning</a></li>
+				<li class="list-item"><a href="http://www.meetup.com/topics/business-strategy/" class="link chunk wrap--singleLine--truncate">Business Strategy</a></li>
+			</ul>
+
+			<ul class="list spreadable-item attachment border--top atLarge_border--none display--none atLarge_display--block">
+				<li class="list-item"><a href="http://www.meetup.com/topics/daytraders/" class="link chunk wrap--singleLine--truncate">Day Traders</a></li>
+				<li class="list-item"><a href="http://www.meetup.com/topics/financial-education/" class="link chunk wrap--singleLine--truncate">Financial Education</a></li>
+				<li class="list-item"><a href="http://www.meetup.com/topics/creative-freelancers/" class="link chunk wrap--singleLine--truncate">Creative Freelancers</a></li>
+				<li class="list-item"><a href="http://www.meetup.com/topics/mompreneurs/" class="link chunk wrap--singleLine--truncate">Mompreneurs</a></li>
+				<li class="list-item"><a href="http://www.meetup.com/topics/money/" class="link chunk wrap--singleLine--truncate">Money</a></li>
+				<li class="list-item"><a href="http://www.meetup.com/topics/debt-elimination/" class="link chunk wrap--singleLine--truncate">Debt Elimination</a></li>
+				<li class="list-item"><a href="http://www.meetup.com/topics/career-transition/" class="link chunk wrap--singleLine--truncate">Career Transition</a></li>
+				<li class="list-item"><a href="http://www.meetup.com/topics/commercial-real-estate/" class="link chunk wrap--singleLine--truncate">Commercial Real Estate</a></li>
+				<li class="list-item"><a href="http://www.meetup.com/topics/communication/" class="link chunk wrap--singleLine--truncate">Communication</a></li>
+				<li class="list-item"><a href="http://www.meetup.com/topics/currency-trading/" class="link chunk wrap--singleLine--truncate">Currency Trading</a></li>
+			</ul>
+		</div>
+
+	</div></section>
 
 	<footer class="stripe stripe--inverted inverted">
 		<div class="bounds">
