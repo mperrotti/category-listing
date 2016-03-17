@@ -9,6 +9,10 @@ $C_contentBGInvertedAccent: #180F3B;
 //
 // TO BE CONSIDERED AS GLOBAL CHANGES
 //
+.view {
+	background-color: $C_contentBG !important;
+}
+
 .runningText {
 	p {
 		max-width: 40em;
@@ -224,5 +228,39 @@ $dotTimeBase: 500;
 	padding-top: $space;
 	&.attachment {
 		padding-top: $space-half;
+	}
+}
+
+// .category-listing {
+// 	white-space: nowrap;
+// }
+
+.atLarge_exactList--override {
+	@include atMediaUp(large) {
+		height: auto;
+
+		.exactList-content {
+			text-align: left;
+		}
+
+		.atLarge_gridList--has1 > li {
+			width: 100% !important;
+		}
+
+	}
+}
+
+.js-listOpen {
+
+	.icon-chevronDown {
+		@include transform(rotate(180deg));
+	}
+
+	.js-categoryList {
+		height: auto;
+
+		.gridList {
+			margin-top: $space;
+		}
 	}
 }

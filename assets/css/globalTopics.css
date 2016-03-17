@@ -364,6 +364,9 @@ Adds a pseudo-element gradient
   font-weight: 700;
   color: rgba(0, 0, 0, 0.87); }
 
+.view {
+  background-color: white !important; }
+
 .runningText p {
   max-width: 40em; }
 
@@ -509,5 +512,22 @@ Adds a pseudo-element gradient
   padding-top: 16px; }
   .topicList ul.attachment {
     padding-top: 8px; }
+
+@media only screen and (min-width: 840px) {
+  .atLarge_exactList--override {
+    height: auto; }
+    .atLarge_exactList--override .exactList-content {
+      text-align: left; }
+    .atLarge_exactList--override .atLarge_gridList--has1 > li {
+      width: 100% !important; } }
+
+.js-listOpen .icon-chevronDown {
+  -webkit-transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
+  transform: rotate(180deg); }
+.js-listOpen .js-categoryList {
+  height: auto; }
+  .js-listOpen .js-categoryList .gridList {
+    margin-top: 16px; }
 
 /*# sourceMappingURL=globalTopics.css.map */

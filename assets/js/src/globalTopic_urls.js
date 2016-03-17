@@ -23,7 +23,8 @@ router.add('', function(context){ // homepage
 	views.show({
 		template: 'main-template',
 		events: {
-			"renderNavigation": renderNavigation()
+			"renderNavigation" : renderNavigation(),
+			"expandCategories" : expandCategories
 		},
 		observe: {
 		},
